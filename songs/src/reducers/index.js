@@ -1,0 +1,22 @@
+import {combineReducers} from "redux";
+
+const songsReducer = () => {
+  return [
+      {title: "No Sctubr", duration: "4:05"},
+      {title: "Yes Sctubr", duration: "4:30"},
+      {title: "All Stars", duration: "3:30"},
+      {title: "I want it That Way", duration: "3:33"},
+  ];
+};
+
+const selectedSongReducer = (selectedSong = null, action) => {
+    if (action.type === "SONG_SELECTED") {
+        return action.payload;
+    }
+    return selectedSong;
+};
+
+export default combineReducers({
+    songs: songsReducer,
+    selectedSong: selectedSongReducer,
+});
